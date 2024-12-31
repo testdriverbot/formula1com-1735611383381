@@ -1,0 +1,46 @@
+version: 4.1.32
+steps:
+  - prompt: Scroll to the footer of the page.
+    commands:
+      - command: hover-text
+        text: ACCEPT ALL
+        description: accept all cookies button
+        action: click
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+      - command: scroll
+        direction: down
+  - prompt: Assert that the "Contact Us" link is visible.
+    commands:
+      - command: assert
+        expect: the "Contact Us" link is visible
+  - prompt: Click the "Contact Us" link.
+    commands:
+      - command: hover-text
+        text: CONTACTS
+        description: Contact Us link in the footer
+        action: click
+  - prompt: >-
+      Assert that the contact page loads correctly.  # Use the content of the
+      file from the environment
+    commands:
+      - command: assert
+        expect: the "FAQ's & Contact Information" heading is visible
