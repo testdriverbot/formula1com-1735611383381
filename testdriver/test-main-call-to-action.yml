@@ -1,0 +1,32 @@
+version: 4.1.32
+steps:
+  - prompt: Assert that the "Sign In" button is visible.
+    commands:
+      - command: hover-text
+        text: SIGN IN
+        description: sign in button in the top right of the header
+        action: hover
+      - command: assert
+        expect: the "Sign In" button is visible
+  - prompt: Click the "Sign In" button.
+    commands:
+      - command: hover-text
+        text: SIGN IN
+        description: sign in button in the top right of the header
+        action: click
+  - prompt: >-
+      Assert that the sign-in page loads correctly.  # Use the content of the
+      file from the environment
+    commands:
+      - command: hover-text
+        text: ACCEPT ALL
+        description: accept all cookies button on the cookie consent dialog
+        action: click
+      - command: wait
+        timeout: 2000
+      - command: hover-text
+        text: SIGN IN
+        description: sign in button in the top right of the header
+        action: hover
+      - command: assert
+        expect: the sign-in page loads correctly
