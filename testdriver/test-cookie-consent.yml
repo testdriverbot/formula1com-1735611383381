@@ -1,0 +1,20 @@
+version: 4.1.32
+steps:
+  - prompt: Assert that the cookie consent popup is visible.
+    commands:
+      - command: assert
+        expect: YOUR CHOICES REGARDING COOKIES ON THIS SITE is visible
+  - prompt: Click "Accept All" on the cookie consent popup.
+    commands:
+      - command: hover-text
+        text: ACCEPT ALL
+        description: accept all button on the cookie consent popup
+        action: click
+  - prompt: >-
+      Assert that the popup disappears and the page updates accordingly.  # Use
+      the content of the file from the environment
+    commands:
+      - command: assert
+        expect: YOUR CHOICES REGARDING COOKIES ON THIS SITE is not visible
+      - command: assert
+        expect: From team mate spats to a Safety Car drought is visible
