@@ -1,0 +1,6 @@
+version: 4.1.32
+steps:
+  - prompt: Assert that the navigation menu is visible.
+    commands:
+      - command: assert
+        expect: the navigation menu with "F1®" is visible
